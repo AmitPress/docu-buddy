@@ -1,0 +1,3 @@
+CREATE EXTENSION IF NOT EXISTS vector
+    SCHEMA public
+    VERSION "0.8.0";
