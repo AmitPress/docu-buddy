@@ -1,0 +1,25 @@
+table user {
+  id int pk
+  name string
+  password string
+}
+
+table chat {
+  id pk
+  profile_id int
+  context_id int
+}
+
+table context{
+  id int
+  docname string
+  size float
+  document blob
+  range string // 1 or 1,2,3 or 3-5 (split by comma, split by hyphen)
+  embeddings vector
+  chats list(text)
+}
+
+Ref: chat.profile_id > user.id // 1 user can have 0 or more chat, 1 chat can have only 1 user
+Ref: chat.context_id <> context.id // 1 chat can have 0 or 1 context only, 1 context can be in many chats
+
